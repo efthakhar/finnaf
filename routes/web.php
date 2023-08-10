@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\Api\IncomeController;
 use App\Http\Controllers\Api\ReportController;
 use App\Http\Controllers\Api\User\UserController;
+use App\Http\Controllers\Api\VisitorController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Database\Seeders\DevDemo;
@@ -80,5 +81,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     // Dashboard Reports
     Route::get('/api/dashboard-reports', [ReportController::class, 'getDashBoardReports']);
+
+    // Demo Site Visitors Data
+    Route::get('/api/visitors', [VisitorController::class, 'index']);
 
 });

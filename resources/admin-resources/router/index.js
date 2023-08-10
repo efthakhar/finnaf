@@ -49,6 +49,16 @@ const router = createRouter({
                             "../modules/expense-category/ExpenseCategories.vue"
                         ),
                 },
+
+                // Demo Site Visitors Track 
+                {
+                    name: "visitors",
+                    path: "visitors",
+                    component: () =>
+                        import(
+                            "../modules/visitor/Visitors.vue"
+                        ),
+                },
             ],
         },
     ],

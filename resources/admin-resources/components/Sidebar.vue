@@ -43,6 +43,12 @@ const navlinks = [
         ],
     },
 
+    {
+        label: "site visitors",
+        link: "/admin/visitors",
+        icon_name: "customer-svg-icon",
+    },
+
     // {
     //     label: "settings",
     //     link: " ",

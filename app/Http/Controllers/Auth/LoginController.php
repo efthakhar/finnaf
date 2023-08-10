@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Visitor;
 use Database\Seeders\DevDemo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +25,17 @@ class LoginController extends Controller
         $seeder = new DevDemo();
         $seeder->run();
 
+        $visitor = Visitor::where('ip', $request->ip())->first();
+
+        if ($visitor) {
+            $visitor->increment('count');
+        } else {
+            Visitor::create([
+                'ip' => $request->ip(),
+                'count' => 0,
+            ]);
+        }
+
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
@@ -32,11 +43,6 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials, 100)) {
             $request->session()->regenerate();
-            if (User::find(Auth::id())->can('manage_dashboard')) {
-
-                redirect()->route('admin');
-            }
-
             redirect()->route('home');
         }
 

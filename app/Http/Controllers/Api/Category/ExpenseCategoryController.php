@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api\Category;
 
+use App\Exceptions\CategoryHasChildException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CreateExpenseCategoryRequest;
 use App\Http\Requests\Category\UpdateExpenseCategoryRequest;
@@ -98,21 +99,23 @@ class ExpenseCategoryController extends Controller
             foreach ($ids as $id) {
 
                 $category = Category::where('category_type', 'expense')->where('id', $id)->first();
+
                 if ($category->expenses()->count() > 0) {
-                    throw new Exception('Cannot delete category. It is associated with expense models.', 582);
+
+                    throw new CategoryHasChildException();
                 } else {
                     $category->delete();
                 }
             }
-        } catch (Exception $e) {
+        } catch (CategoryHasChildException $e) {
 
-            if ($e->getCode() == 582) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'failed to delete expanse category',
-                    'error' => $e->getMessage(),
-                ], 582);
-            }
+            return response()->json([
+                'status' => 'error',
+                'message' => 'category has non zero expense records.',
+                'error_type' => 'HAS_CHILD_ERROR',
+            ], 500);
+
+        } catch (Exception $e) {
 
             return response()->json([
                 'status' => 'error',

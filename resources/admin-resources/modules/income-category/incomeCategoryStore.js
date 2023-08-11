@@ -182,15 +182,19 @@ export const useIncomeCategoryStore = defineStore("income_category", {
                         resolve(response);
                     })
                     .catch((errors) => {
-                        if (errors.response.status == 582) {
+                        if (
+                            errors.response.data.error_type &&
+                            errors.response.data.error_type == "HAS_CHILD_ERROR"
+                        ) {
                             const notifcationStore = useNotificationStore();
                             notifcationStore.pushNotification({
                                 message:
-                                    "Cannot delete category. It is associated with non zero income records. Delete that incomes first",
+                                    "Category is associated with non zero income records. Delete that incomes first.",
                                 type: "error",
                                 time: 5000,
                             });
                         }
+
                         reject(errors);
                     });
             });

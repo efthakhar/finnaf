@@ -181,11 +181,14 @@ export const useExpenseCategoryStore = defineStore("expense_category", {
                         resolve(response);
                     })
                     .catch((errors) => {
-                        if (errors.response.status == 582) {
+                        if (
+                            errors.response.data.error_type &&
+                            errors.response.data.error_type == "HAS_CHILD_ERROR"
+                        ) {
                             const notifcationStore = useNotificationStore();
                             notifcationStore.pushNotification({
                                 message:
-                                    "Cannot delete category. It is associated with non zero expense records. Delete that expenses first.",
+                                    "Category is associated with non zero expense records. Delete that expenses first.",
                                 type: "error",
                                 time: 5000,
                             });

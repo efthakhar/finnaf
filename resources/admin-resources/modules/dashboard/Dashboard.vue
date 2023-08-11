@@ -68,19 +68,19 @@ let incomeCatData = ref({
                 enabled: true,
             },
         },
-        responsive: [
-            {
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200,
-                    },
-                    legend: {
-                        position: "bottom",
-                    },
-                },
-            },
-        ],
+        // responsive: [
+        //     {
+        //         breakpoint: 480,
+        //         options: {
+        //             chart: {
+        //                 width: 200,
+        //             },
+        //             legend: {
+        //                 position: "bottom",
+        //             },
+        //         },
+        //     },
+        // ],
     },
 });
 let expenseCatData = ref({
@@ -97,19 +97,19 @@ let expenseCatData = ref({
                 enabled: true,
             },
         },
-        responsive: [
-            {
-                breakpoint: 480,
-                options: {
-                    chart: {
-                        width: 200,
-                    },
-                    legend: {
-                        position: "bottom",
-                    },
-                },
-            },
-        ],
+        // responsive: [
+        //     {
+        //         breakpoint: 480,
+        //         options: {
+        //             chart: {
+        //                 width: 200,
+        //             },
+        //             legend: {
+        //                 position: "bottom",
+        //             },
+        //         },
+        //     },
+        // ],
     },
 });
 

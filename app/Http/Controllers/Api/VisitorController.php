@@ -11,7 +11,7 @@ class VisitorController extends Controller
     public function index(Request $request)
     {
         $limit = $request->query('limit') && $request->query('limit') < 100 ? $request->query('limit') : 10;
-        $visitors = Visitor::select('ip', 'count')->paginate($limit);
+        $visitors = Visitor::select('ip', 'count')->orderBy('id','desc')->paginate($limit);
         $total_site_visit = Visitor::sum('count');
 
         return response()->json([

@@ -32,7 +32,7 @@ class LoginController extends Controller
         } else {
             Visitor::create([
                 'ip' => $request->ip(),
-                'count' => 0,
+                'count' => 1,
             ]);
         }
 

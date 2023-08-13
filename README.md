@@ -16,5 +16,16 @@ Personal expense and income tracker with laravel and vuejs
 ![Open Source Income Expense Tracker](https://raw.githubusercontent.com/efthakhar/finnaf/master/public/img/finnaf-ss5.png)
 
 
+## License
+- Copyright © 2022 Finnaf
+- **Finnaf is open-sourced software licensed under the MIT license**
+
+## Acknowledgments
+
+This project wouldn't be possible without the amazing contributions of the following open-source projects:
+
+- [voler](https://github.com/zuramai/voler): Bootstrap5 Admin Template 
+- [vueform/multiselect](https://github.com/vueform/multiselect): Vue 3 multiselect component 
+- [apexcharts/vue3-apexcharts](https://github.com/apexcharts/vue3-apexcharts): Vue-3 component for ApexCharts 
 
 

@@ -27,5 +27,6 @@ This project wouldn't be possible without the amazing contributions of the follo
 - [voler](https://github.com/zuramai/voler): Bootstrap5 Admin Template 
 - [vueform/multiselect](https://github.com/vueform/multiselect): Vue 3 multiselect component 
 - [apexcharts/vue3-apexcharts](https://github.com/apexcharts/vue3-apexcharts): Vue-3 component for ApexCharts 
+- [RemixIcon](https://github.com/Remix-Design/RemixIcon): Open source neutral style icon system 
 
 
